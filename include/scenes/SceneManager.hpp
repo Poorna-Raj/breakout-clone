@@ -16,4 +16,5 @@ public:
     void switchScene(SceneType type);
     void draw();
     void update();
+    bool shouldClose() const;
 };

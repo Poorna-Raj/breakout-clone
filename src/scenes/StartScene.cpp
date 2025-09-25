@@ -22,3 +22,8 @@ SceneType StartScene::nextScene()
 {
     return startPressed ? SceneType::GAME : SceneType::NONE;
 }
+
+bool StartScene::shouldClose()
+{
+    return IsKeyPressed(KEY_A);
+}

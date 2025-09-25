@@ -12,6 +12,7 @@ public:
 
     void update();
     void draw();
+    bool shouldClose();
 
     SceneType nextScene();
 };

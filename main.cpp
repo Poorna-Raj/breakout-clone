@@ -12,7 +12,7 @@ int main()
 
     SceneManager manager;
 
-    while (!WindowShouldClose())
+    while (!WindowShouldClose() && !manager.shouldClose())
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);

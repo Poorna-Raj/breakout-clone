@@ -55,3 +55,8 @@ void SceneManager::draw()
         currentScene->draw();
     }
 }
+
+bool SceneManager::shouldClose() const
+{
+    return currentScene && currentScene->shouldClose();
+}

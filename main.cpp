@@ -1,9 +1,8 @@
 #include "raylib.h"
+#include "scenes/SceneManager.hpp"
 
 int main()
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
     const int screenWidth = 800;
     const int screenHeight = 450;
 
@@ -11,11 +10,14 @@ int main()
 
     SetTargetFPS(60);
 
+    SceneManager manager;
+
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawText("Hello", 190, 200, 20, LIGHTGRAY);
+        manager.update();
+        manager.draw();
         EndDrawing();
     }
 

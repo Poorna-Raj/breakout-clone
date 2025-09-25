@@ -1,0 +1,10 @@
+set(SOURCES 
+    GameScene.cpp
+    SceneManager.cpp
+    StartScene.cpp
+)
+
+add_library(Scenes ${SOURCES})
+target_include_directories(Scenes PUBLIC ${CMAKE_SOURCE_DIR}/include)
+
+target_link_libraries(Scenes PUBLIC raylib)

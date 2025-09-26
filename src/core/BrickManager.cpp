@@ -11,6 +11,8 @@ BrickManager::BrickManager()
             bricks.emplace_back(x, y, brickWidth, brickHeight, true);
         }
     }
+
+    brickRemaining = rows * columns;
 }
 
 BrickManager::~BrickManager() {};
@@ -44,8 +46,14 @@ bool BrickManager::checkCollision(Ball &ball)
             brick.setStatus(false);
             ball.bounceY();
 
+            brickRemaining--;
             return true;
         }
     }
     return false;
+}
+
+bool BrickManager::allBricksCleared()
+{
+    return brickRemaining == 0;
 }

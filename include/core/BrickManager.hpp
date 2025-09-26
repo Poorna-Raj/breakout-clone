@@ -14,6 +14,8 @@ private:
     const float spacing = 5;
     std::vector<Brick> bricks;
 
+    int brickRemaining;
+
 public:
     BrickManager();
     ~BrickManager();
@@ -22,4 +24,5 @@ public:
     void update();
 
     bool checkCollision(Ball &ball);
+    bool allBricksCleared();
 };

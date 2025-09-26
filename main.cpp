@@ -1,5 +1,5 @@
 #include "raylib.h"
-#include "scenes/SceneManager.hpp"
+#include "core/SceneManager.hpp"
 
 int main()
 {

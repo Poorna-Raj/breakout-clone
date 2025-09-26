@@ -1,4 +1,4 @@
-#include "scenes/SceneManager.hpp"
+#include "core/SceneManager.hpp"
 #include "scenes/StartScene.hpp"
 #include "scenes/GameScene.hpp"
 #include "scenes/EndScene.hpp"

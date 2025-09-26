@@ -4,7 +4,7 @@ project(Breakout)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# add_subdirectory(src/core)
+add_subdirectory(src/core)
 add_subdirectory(src/entities)
 add_subdirectory(src/scenes)
 
@@ -32,6 +32,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     raylib
     Scenes
     Entities
+    CoreLib
 )
 target_compile_definitions(raylib PUBLIC PLATFORM_DESKTOP)
 target_include_directories(raylib PUBLIC

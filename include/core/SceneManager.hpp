@@ -1,7 +1,7 @@
-#include "Scene.hpp"
+#include "scenes/Scene.hpp"
 #include <iostream>
 #include <memory>
-#include "SceneType.hpp"
+#include "scenes/SceneType.hpp"
 
 class SceneManager
 {

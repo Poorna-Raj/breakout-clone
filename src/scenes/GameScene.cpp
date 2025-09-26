@@ -19,7 +19,7 @@ void GameScene::update()
     checkBallPaddleCollision(*ball, *paddle);
     checkGameStart();
     brickManager.checkCollision(*ball);
-    if (IsKeyPressed(KEY_ENTER))
+    if (brickManager.allBricksCleared())
     {
         startPressed = true;
     }

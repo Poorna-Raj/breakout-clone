@@ -32,8 +32,6 @@ void SceneManager::update()
     if (currentScene)
     {
         currentScene->update();
-
-        std::cout << "didn't switch yet" << "\n";
         if (auto startScene = dynamic_cast<StartScene *>(currentScene.get()))
         {
             SceneType next = startScene->nextScene();
@@ -41,8 +39,6 @@ void SceneManager::update()
             if (next != SceneType::NONE)
             {
                 switchScene(next);
-
-                std::cout << "switch to game" << "\n";
             }
         }
     }

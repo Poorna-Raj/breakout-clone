@@ -27,9 +27,9 @@ void GameScene::update()
 
 void GameScene::draw()
 {
+    brickManager.draw();
     paddle->draw();
     ball->draw();
-    brickManager.draw();
     DrawText("Press ENTER to END.", 200, 200, 20, RED);
 }
 

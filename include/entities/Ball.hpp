@@ -24,7 +24,9 @@ public:
     float getY();
     float getWidth();
     float getHeight();
+    int getSpeed();
 
     void setY(float posY);
+    void setSpeed(int spd);
     void setVelocity(Vector2 velo);
 };

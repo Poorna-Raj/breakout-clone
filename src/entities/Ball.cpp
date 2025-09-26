@@ -55,3 +55,13 @@ void Ball::setVelocity(Vector2 velo)
 {
     velocity = velo;
 }
+
+int Ball::getSpeed()
+{
+    return speed;
+}
+
+void Ball::setSpeed(int spd)
+{
+    speed = spd;
+}

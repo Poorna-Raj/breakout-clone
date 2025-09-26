@@ -39,3 +39,20 @@ void Paddle::moveRight()
         x += speedX * GetFrameTime();
     }
 }
+
+float Paddle::getX()
+{
+    return x;
+};
+float Paddle::getY()
+{
+    return y;
+};
+float Paddle::getWidth()
+{
+    return width;
+};
+float Paddle::getHeight()
+{
+    return height;
+};

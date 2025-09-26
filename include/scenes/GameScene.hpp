@@ -2,6 +2,7 @@
 #include "Scene.hpp"
 #include "entities/Paddle.hpp"
 #include <memory>
+#include "entities/Ball.hpp"
 
 class GameScene : public Scene
 {
@@ -9,13 +10,16 @@ private:
     bool startPressed = false;
 
 public:
-    std::unique_ptr<Paddle> player;
+    std::unique_ptr<Paddle> paddle;
+    std::unique_ptr<Ball> ball;
 
     GameScene();
     ~GameScene();
 
     void update();
     void draw();
+
+    void addBall(Paddle *paddle);
 
     SceneType nextScene();
 };

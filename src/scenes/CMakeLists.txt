@@ -2,6 +2,7 @@ set(SOURCES
     GameScene.cpp
     SceneManager.cpp
     StartScene.cpp
+    EndScene.cpp
 )
 
 add_library(Scenes ${SOURCES})

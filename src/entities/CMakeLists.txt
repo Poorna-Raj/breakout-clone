@@ -1,6 +1,7 @@
 set(SOURCES
     Paddle.cpp
     Ball.cpp
+    Brick.cpp
 )
 
 add_library(Entities ${SOURCES})

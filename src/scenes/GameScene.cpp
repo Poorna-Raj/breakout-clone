@@ -17,6 +17,7 @@ void GameScene::update()
     ball->update();
     checkBallWallCollision();
     checkBallPaddleCollision(ball.get(), paddle.get());
+    checkGameStart();
     if (IsKeyPressed(KEY_ENTER))
     {
         startPressed = true;
@@ -38,14 +39,13 @@ SceneType GameScene::nextScene()
 void GameScene::addBall(Paddle *paddle)
 {
     float startX = paddle->getX() + paddle->getWidth() / 2;
-    float startY = paddle->getY() - 100;
+    float startY = paddle->getY() - 20;
 
     float angle = GetRandomValue(30, 150);
     float rad = angle * PI / 180.0F;
     Vector2 velo = {cosf(rad), -sinf(rad)};
 
-    ball = std::make_unique<Ball>(startX, startY, 20, 20, 350, velo);
-    std::cout << "I made the ball" << "\n";
+    ball = std::make_unique<Ball>(startX, startY, 20, 20, 0, velo);
 }
 
 void GameScene::checkBallWallCollision()
@@ -74,5 +74,13 @@ void GameScene::checkBallPaddleCollision(Ball *ball, Paddle *paddle)
     if (CheckCollisionRecs(ballRect, paddleRect))
     {
         ball->bounceY();
+    }
+}
+
+void GameScene::checkGameStart()
+{
+    if (IsKeyPressed(KEY_SPACE) && ball->getSpeed() == 0)
+    {
+        ball->setSpeed(350);
     }
 }

@@ -22,6 +22,7 @@ public:
     void addBall(Paddle *paddle);
     void checkBallWallCollision();
     void checkBallPaddleCollision(Ball *ball, Paddle *paddle);
+    void checkGameStart();
 
     SceneType nextScene();
 };

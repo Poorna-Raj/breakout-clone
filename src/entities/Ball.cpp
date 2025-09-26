@@ -1,4 +1,4 @@
-#include "Ball.hpp"
+#include "entities/Ball.hpp"
 
 Ball::Ball(float startX, float startY, float w, float h, int spd, Vector2 velo)
     : x(startX), y(startY), width(w), height(h), speed(spd), velocity(velo) {};

@@ -15,6 +15,8 @@ void GameScene::update()
 {
     paddle->update();
     ball->update();
+    checkBallWallCollision();
+    checkBallPaddleCollision(ball.get(), paddle.get());
     if (IsKeyPressed(KEY_ENTER))
     {
         startPressed = true;
@@ -44,4 +46,33 @@ void GameScene::addBall(Paddle *paddle)
 
     ball = std::make_unique<Ball>(startX, startY, 20, 20, 350, velo);
     std::cout << "I made the ball" << "\n";
+}
+
+void GameScene::checkBallWallCollision()
+{
+    if (ball->getX() < 0)
+    {
+        ball->bounceX();
+    }
+
+    if (ball->getX() > GetScreenWidth() - ball->getWidth())
+    {
+        ball->bounceX();
+    }
+
+    if (ball->getY() < 0)
+    {
+        ball->bounceY();
+    }
+}
+
+void GameScene::checkBallPaddleCollision(Ball *ball, Paddle *paddle)
+{
+    Rectangle ballRect = {ball->getX(), ball->getY(), ball->getWidth(), ball->getHeight()};
+    Rectangle paddleRect = {paddle->getX(), paddle->getY(), paddle->getWidth(), paddle->getHeight()};
+
+    if (CheckCollisionRecs(ballRect, paddleRect))
+    {
+        ball->bounceY();
+    }
 }

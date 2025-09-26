@@ -3,7 +3,7 @@
 
 GameScene::GameScene()
 {
-    player = std::make_unique<Paddle>(100, 100, 100, 50, 150);
+    player = std::make_unique<Paddle>(0, GetScreenHeight() - 25, 120, 20, 300);
 };
 
 GameScene::~GameScene() {};

@@ -6,7 +6,7 @@
 GameScene::GameScene()
 {
     paddle = std::make_unique<Paddle>(0, GetScreenHeight() - 25, 120, 20, 300);
-    addBall(paddle.get());
+    addBall(*paddle);
 };
 
 GameScene::~GameScene() {};
@@ -16,8 +16,9 @@ void GameScene::update()
     paddle->update();
     ball->update();
     checkBallWallCollision();
-    checkBallPaddleCollision(ball.get(), paddle.get());
+    checkBallPaddleCollision(*ball, *paddle);
     checkGameStart();
+    brickManager.checkCollision(*ball);
     if (IsKeyPressed(KEY_ENTER))
     {
         startPressed = true;
@@ -28,6 +29,7 @@ void GameScene::draw()
 {
     paddle->draw();
     ball->draw();
+    brickManager.draw();
     DrawText("Press ENTER to END.", 200, 200, 20, RED);
 }
 
@@ -36,10 +38,10 @@ SceneType GameScene::nextScene()
     return startPressed ? SceneType::END : SceneType::NONE;
 }
 
-void GameScene::addBall(Paddle *paddle)
+void GameScene::addBall(Paddle &paddle)
 {
-    float startX = paddle->getX() + paddle->getWidth() / 2;
-    float startY = paddle->getY() - 20;
+    float startX = paddle.getX() + paddle.getWidth() / 2;
+    float startY = paddle.getY() - 20;
 
     float angle = GetRandomValue(30, 150);
     float rad = angle * PI / 180.0F;
@@ -71,14 +73,14 @@ void GameScene::checkBallWallCollision()
     }
 }
 
-void GameScene::checkBallPaddleCollision(Ball *ball, Paddle *paddle)
+void GameScene::checkBallPaddleCollision(Ball &ball, Paddle &paddle)
 {
-    Rectangle ballRect = {ball->getX(), ball->getY(), ball->getWidth(), ball->getHeight()};
-    Rectangle paddleRect = {paddle->getX(), paddle->getY(), paddle->getWidth(), paddle->getHeight()};
+    Rectangle ballRect = {ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight()};
+    Rectangle paddleRect = {paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight()};
 
     if (CheckCollisionRecs(ballRect, paddleRect))
     {
-        ball->bounceY();
+        ball.bounceY();
     }
 }
 

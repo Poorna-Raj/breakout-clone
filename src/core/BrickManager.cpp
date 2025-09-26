@@ -46,7 +46,6 @@ bool BrickManager::checkCollision(Ball &ball)
 
             return true;
         }
-
-        return false;
     }
+    return false;
 }

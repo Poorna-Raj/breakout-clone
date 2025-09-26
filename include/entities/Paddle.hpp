@@ -20,4 +20,7 @@ public:
     float getY();
     float getWidth();
     float getHeight();
+
+    void moveRight();
+    void moveLeft();
 };

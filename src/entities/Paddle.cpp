@@ -13,13 +13,29 @@ void Paddle::draw()
 
 void Paddle::update()
 {
-    if (IsKeyDown(KEY_RIGHT))
+    if (x > 0)
     {
-        x += speedX * GetFrameTime();
+        moveLeft();
     }
 
+    if (x < GetScreenWidth() - width)
+    {
+        moveRight();
+    }
+}
+
+void Paddle::moveLeft()
+{
     if (IsKeyDown(KEY_LEFT))
     {
         x -= speedX * GetFrameTime();
+    }
+}
+
+void Paddle::moveRight()
+{
+    if (IsKeyDown(KEY_RIGHT))
+    {
+        x += speedX * GetFrameTime();
     }
 }

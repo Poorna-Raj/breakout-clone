@@ -64,6 +64,11 @@ void GameScene::checkBallWallCollision()
     {
         ball->bounceY();
     }
+
+    if (ball->getY() > GetScreenHeight() - ball->getHeight())
+    {
+        startPressed = true;
+    }
 }
 
 void GameScene::checkBallPaddleCollision(Ball *ball, Paddle *paddle)

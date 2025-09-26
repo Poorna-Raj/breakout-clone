@@ -1,5 +1,6 @@
 set(SOURCES
     SceneManager.cpp
+    BrickManager.cpp
 )
 
 add_library(CoreLib ${SOURCES})

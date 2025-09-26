@@ -7,7 +7,10 @@ Brick::~Brick() {};
 
 void Brick::draw()
 {
-    DrawRectangle(x, y, width, height, GREEN);
+    if (isAlive)
+    {
+        DrawRectangle(x, y, width, height, GREEN);
+    }
 }
 
 void Brick::update()

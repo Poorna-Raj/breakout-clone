@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # add_subdirectory(src/core)
-# add_subdirectory(src/entities)
+add_subdirectory(src/entities)
 add_subdirectory(src/scenes)
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -31,6 +31,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} PRIVATE
     raylib
     Scenes
+    Entities
 )
 target_compile_definitions(raylib PUBLIC PLATFORM_DESKTOP)
 target_include_directories(raylib PUBLIC

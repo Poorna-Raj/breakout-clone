@@ -5,7 +5,7 @@
 
 GameScene::GameScene()
 {
-    paddle = std::make_unique<Paddle>(0, GetScreenHeight() - 25, 120, 20, 300);
+    paddle = std::make_unique<Paddle>(0, GetScreenHeight() - 25, 96, 16, 300);
     addBall(*paddle);
 };
 
@@ -61,7 +61,7 @@ void GameScene::addBall(Paddle &paddle)
     float rad = angle * PI / 180.0F;
     Vector2 velo = {cosf(rad), -sinf(rad)};
 
-    ball = std::make_unique<Ball>(startX, startY, 20, 20, 0, velo);
+    ball = std::make_unique<Ball>(startX, startY, 16, 16, 0, velo);
 }
 
 void GameScene::checkBallWallCollision()

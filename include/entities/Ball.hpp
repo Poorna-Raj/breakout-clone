@@ -10,6 +10,7 @@ private:
     float height;
     int speed;
     Vector2 velocity;
+    Texture2D texture;
 
 public:
     Ball(float startX, float startY, float w, float h, int spd, Vector2 velo);

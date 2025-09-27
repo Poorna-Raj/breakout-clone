@@ -1,13 +1,21 @@
 #include "entities/Ball.hpp"
 
 Ball::Ball(float startX, float startY, float w, float h, int spd, Vector2 velo)
-    : x(startX), y(startY), width(w), height(h), speed(spd), velocity(velo) {};
+    : x(startX), y(startY), width(w), height(h), speed(spd), velocity(velo)
+{
+    texture = LoadTexture("assets/entities/Ball.png");
+};
 
-Ball::~Ball() {};
+Ball::~Ball()
+{
+    UnloadTexture(texture);
+};
 
 void Ball::draw()
 {
-    DrawRectangle(x, y, width, height, RED);
+    Rectangle src = {0, 0, (float)texture.width, (float)texture.height};
+    Rectangle dest = {x, y, width, height};
+    DrawTexturePro(texture, src, dest, {0, 0}, 0.0F, WHITE);
 }
 
 void Ball::update()

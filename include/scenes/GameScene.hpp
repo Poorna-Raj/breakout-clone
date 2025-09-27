@@ -9,6 +9,7 @@ class GameScene : public Scene
 {
 private:
     bool startPressed = false;
+    bool requestClose = false;
 
 public:
     std::unique_ptr<Paddle> paddle;
@@ -22,9 +23,10 @@ public:
     void update();
     void draw();
     void drawPauseMenu();
+    void updatePauseMenu();
+    bool shouldClose();
 
-    void
-    addBall(Paddle &paddle);
+    void addBall(Paddle &paddle);
     void checkBallWallCollision();
     void checkBallPaddleCollision(Ball &ball, Paddle &paddle);
     void checkGameStart();

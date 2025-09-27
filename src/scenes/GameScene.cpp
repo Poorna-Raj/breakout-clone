@@ -27,6 +27,10 @@ void GameScene::update()
             startPressed = true;
         }
     }
+    else
+    {
+        updatePauseMenu();
+    }
 
     if (IsKeyPressed(KEY_TAB))
     {
@@ -114,10 +118,30 @@ void GameScene::drawPauseMenu()
     Rectangle resumeBtn = {GetScreenWidth() / 2 - 60.0f, GetScreenHeight() / 2 - 50.0f, 120, 40};
     bool hoveringResume = CheckCollisionPointRec(GetMousePosition(), resumeBtn);
     DrawRectangleRec(resumeBtn, hoveringResume ? (Color){60, 120, 255, 255} : (Color){20, 60, 160, 255});
-    DrawText("Restart", resumeBtn.x + 23, resumeBtn.y + 10, 20, (Color){255, 255, 255, 255});
+    DrawText("Resume", resumeBtn.x + 23, resumeBtn.y + 10, 20, (Color){255, 255, 255, 255});
 
     Rectangle exitBtn = {GetScreenWidth() / 2 - 60.0f, GetScreenHeight() / 2 + 30.0f, 120, 40};
     bool hoveringExit = CheckCollisionPointRec(GetMousePosition(), exitBtn);
     DrawRectangleRec(exitBtn, hoveringExit ? (Color){255, 60, 60, 255} : (Color){160, 20, 20, 255});
     DrawText("Exit", exitBtn.x + 40, exitBtn.y + 10, 20, (Color){255, 255, 255, 255});
+}
+
+void GameScene::updatePauseMenu()
+{
+    Rectangle resumeBtn = {GetScreenWidth() / 2 - 60.0f, GetScreenHeight() / 2 - 50.0f, 120, 40};
+    if (CheckCollisionPointRec(GetMousePosition(), resumeBtn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+    {
+        isPaused = !isPaused;
+    }
+
+    Rectangle exitBtn = {GetScreenWidth() / 2 - 60.0f, GetScreenHeight() / 2 + 30.0f, 120, 40};
+    if (CheckCollisionPointRec(GetMousePosition(), exitBtn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+    {
+        requestClose = true;
+    }
+}
+
+bool GameScene::shouldClose()
+{
+    return requestClose;
 }

@@ -15,7 +15,7 @@ int main()
     while (!WindowShouldClose() && !manager.shouldClose())
     {
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
         manager.update();
         manager.draw();
         EndDrawing();

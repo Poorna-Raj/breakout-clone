@@ -39,7 +39,6 @@ void GameScene::draw()
     brickManager.draw();
     paddle->draw();
     ball->draw();
-    DrawText("Press ENTER to END.", 200, 200, 20, RED);
     if (isPaused)
     {
         DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(BLACK, 0.5f));

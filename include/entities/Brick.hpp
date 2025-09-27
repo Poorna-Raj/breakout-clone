@@ -9,6 +9,7 @@ private:
     float width;
     float height;
     bool isAlive;
+    Texture2D texture;
 
 public:
     Brick(float startX, float startY, float w, float h, bool alive = true);

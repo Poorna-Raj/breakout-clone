@@ -1,15 +1,23 @@
 #include "entities/Brick.hpp"
 
 Brick::Brick(float startX, float startY, float w, float h, bool alive)
-    : x(startX), y(startY), width(w), height(h), isAlive(alive) {};
+    : x(startX), y(startY), width(w), height(h), isAlive(alive)
+{
+    texture = LoadTexture("assets/entities/Brick.png");
+};
 
-Brick::~Brick() {};
+Brick::~Brick()
+{
+    UnloadTexture(texture);
+};
 
 void Brick::draw()
 {
     if (isAlive)
     {
-        DrawRectangle(x, y, width, height, GREEN);
+        Rectangle src = {0, 0, (float)texture.width, (float)texture.height};
+        Rectangle dest = {x, y, width, height};
+        DrawTexturePro(texture, src, dest, {0, 0}, 0.0F, WHITE);
     }
 }
 

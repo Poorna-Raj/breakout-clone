@@ -1,13 +1,21 @@
 #include "entities/Paddle.hpp"
 
 Paddle::Paddle(float startX, float startY, float w, float h, int spd)
-    : x(startX), y(startY), width(w), height(h), speedX(spd) {};
+    : x(startX), y(startY), width(w), height(h), speedX(spd)
+{
+    texture = LoadTexture("assets/entities/Paddle.png");
+};
 
-Paddle::~Paddle() {};
+Paddle::~Paddle()
+{
+    UnloadTexture(texture);
+};
 
 void Paddle::draw()
 {
-    DrawRectangle(x, y, width, height, BLUE);
+    Rectangle src = {0, 0, (float)texture.width, (float)texture.height};
+    Rectangle dest = {x, y, width, height};
+    DrawTexturePro(texture, src, dest, {0, 0}, 0.0F, WHITE);
 }
 
 void Paddle::update()

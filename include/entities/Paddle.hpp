@@ -9,6 +9,7 @@ private:
     float width;
     float height;
     int speedX;
+    Texture2D texture;
 
 public:
     Paddle(float startX, float startY, float w, float h, int spd);

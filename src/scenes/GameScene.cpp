@@ -41,8 +41,7 @@ void GameScene::draw()
     ball->draw();
     if (isPaused)
     {
-        DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(BLACK, 0.5f));
-        DrawText("PAUSED", GetScreenWidth() / 2 - 50, GetScreenHeight() / 2, 30, YELLOW);
+        drawPauseMenu();
     }
 }
 
@@ -103,4 +102,22 @@ void GameScene::checkGameStart()
     {
         ball->setSpeed(350);
     }
+}
+
+void GameScene::drawPauseMenu()
+{
+    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), (Color){0, 0, 0, 150});
+    DrawRectangle(GetScreenWidth() / 2 - 200.0f, GetScreenHeight() / 2 - 112.0f, 400, 225, (Color){30, 30, 30, 220});
+
+    DrawText("GAME PAUSED", GetScreenWidth() / 2 - 115.0f, GetScreenHeight() / 2 - 100.0f, 30, (Color){255, 255, 255, 255});
+
+    Rectangle resumeBtn = {GetScreenWidth() / 2 - 60.0f, GetScreenHeight() / 2 - 50.0f, 120, 40};
+    bool hoveringResume = CheckCollisionPointRec(GetMousePosition(), resumeBtn);
+    DrawRectangleRec(resumeBtn, hoveringResume ? (Color){60, 120, 255, 255} : (Color){20, 60, 160, 255});
+    DrawText("Restart", resumeBtn.x + 23, resumeBtn.y + 10, 20, (Color){255, 255, 255, 255});
+
+    Rectangle exitBtn = {GetScreenWidth() / 2 - 60.0f, GetScreenHeight() / 2 + 30.0f, 120, 40};
+    bool hoveringExit = CheckCollisionPointRec(GetMousePosition(), exitBtn);
+    DrawRectangleRec(exitBtn, hoveringExit ? (Color){255, 60, 60, 255} : (Color){160, 20, 20, 255});
+    DrawText("Exit", exitBtn.x + 40, exitBtn.y + 10, 20, (Color){255, 255, 255, 255});
 }

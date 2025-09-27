@@ -21,8 +21,10 @@ public:
 
     void update();
     void draw();
+    void drawPauseMenu();
 
-    void addBall(Paddle &paddle);
+    void
+    addBall(Paddle &paddle);
     void checkBallWallCollision();
     void checkBallPaddleCollision(Ball &ball, Paddle &paddle);
     void checkGameStart();

@@ -7,7 +7,7 @@ BrickManager::BrickManager()
         for (int col = 0; col < columns; col++)
         {
             float x = col * (brickWidth + spacing);
-            float y = row * (brickHeight + spacing);
+            float y = row * (brickHeight + spacing) + 5;
             bricks.emplace_back(x, y, brickWidth, brickHeight, true);
         }
     }

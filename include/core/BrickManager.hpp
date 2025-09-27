@@ -9,7 +9,7 @@ class BrickManager
 private:
     const int rows = 5;
     const int columns = 10;
-    const float brickWidth = 80;
+    const float brickWidth = 75.5;
     const float brickHeight = 30;
     const float spacing = 5;
     std::vector<Brick> bricks;

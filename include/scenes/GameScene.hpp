@@ -25,6 +25,7 @@ public:
     void drawPauseMenu();
     void updatePauseMenu();
     bool shouldClose();
+    void drawGameStats();
 
     void addBall(Paddle &paddle);
     void checkBallWallCollision();

@@ -43,6 +43,7 @@ void GameScene::draw()
     brickManager.draw();
     paddle->draw();
     ball->draw();
+    drawGameStats();
     if (isPaused)
     {
         drawPauseMenu();
@@ -144,4 +145,9 @@ void GameScene::updatePauseMenu()
 bool GameScene::shouldClose()
 {
     return requestClose;
+}
+
+void GameScene::drawGameStats()
+{
+    DrawText(TextFormat("Remaining Bricks : %d", brickManager.getRemainingBricks()), 15.0f, 5.0f, 20, YELLOW);
 }

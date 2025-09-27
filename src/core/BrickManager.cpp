@@ -4,7 +4,7 @@ BrickManager::BrickManager()
 {
     float totalWidth = columns * brickWidth + (columns + 1) * spacing;
     float offsetX = (GetScreenWidth() - totalWidth) / 2.0f;
-    float offsetY = 10.0f;
+    float offsetY = 30.0f;
 
     for (int row = 0; row < rows; row++)
     {
@@ -62,3 +62,8 @@ bool BrickManager::allBricksCleared()
 {
     return brickRemaining == 0;
 }
+
+int BrickManager::getRemainingBricks()
+{
+    return brickRemaining;
+};

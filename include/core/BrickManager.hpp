@@ -25,4 +25,6 @@ public:
 
     bool checkCollision(Ball &ball);
     bool allBricksCleared();
+
+    int getRemainingBricks();
 };

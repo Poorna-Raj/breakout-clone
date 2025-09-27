@@ -14,6 +14,7 @@ public:
     std::unique_ptr<Paddle> paddle;
     std::unique_ptr<Ball> ball;
     BrickManager brickManager;
+    bool isPaused = false;
 
     GameScene();
     ~GameScene();

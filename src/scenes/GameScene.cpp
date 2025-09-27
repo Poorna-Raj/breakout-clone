@@ -13,15 +13,24 @@ GameScene::~GameScene() {};
 
 void GameScene::update()
 {
-    paddle->update();
-    ball->update();
-    checkBallWallCollision();
-    checkBallPaddleCollision(*ball, *paddle);
-    checkGameStart();
-    brickManager.checkCollision(*ball);
-    if (brickManager.allBricksCleared())
+    if (!isPaused)
     {
-        startPressed = true;
+        paddle->update();
+        ball->update();
+        checkBallWallCollision();
+        checkBallPaddleCollision(*ball, *paddle);
+        checkGameStart();
+        brickManager.checkCollision(*ball);
+
+        if (brickManager.allBricksCleared())
+        {
+            startPressed = true;
+        }
+    }
+
+    if (IsKeyPressed(KEY_TAB))
+    {
+        isPaused = !isPaused;
     }
 }
 
@@ -31,6 +40,11 @@ void GameScene::draw()
     paddle->draw();
     ball->draw();
     DrawText("Press ENTER to END.", 200, 200, 20, RED);
+    if (isPaused)
+    {
+        DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(BLACK, 0.5f));
+        DrawText("PAUSED", GetScreenWidth() / 2 - 50, GetScreenHeight() / 2, 30, YELLOW);
+    }
 }
 
 SceneType GameScene::nextScene()

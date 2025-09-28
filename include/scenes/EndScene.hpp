@@ -5,6 +5,7 @@ class EndScene : public Scene
 {
 private:
     bool requestNext = false;
+    bool shouldExit = false;
 
 public:
     EndScene();

@@ -10,6 +10,10 @@ int main()
 
     SetTargetFPS(60);
 
+    Image icon = LoadImage("assets/icon/icon.png");
+    SetWindowIcon(icon);
+    UnloadImage(icon);
+
     SceneManager manager;
 
     while (!WindowShouldClose() && !manager.shouldClose())

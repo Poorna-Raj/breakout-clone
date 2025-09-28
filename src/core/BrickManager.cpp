@@ -2,7 +2,10 @@
 
 BrickManager::BrickManager()
 {
-    brickTexture = LoadTexture("assets/entities/Brick.png");
+    brickTexture[0] = LoadTexture("assets/entities/Brick.png");
+    brickTexture[1] = LoadTexture("assets/entities/Brick_Green.png");
+    brickTexture[2] = LoadTexture("assets/entities/Brick_Yellow.png");
+
     float totalWidth = columns * brickWidth + (columns + 1) * spacing;
     float offsetX = (GetScreenWidth() - totalWidth) / 2.0f;
     float offsetY = 30.0f;
@@ -14,7 +17,7 @@ BrickManager::BrickManager()
             float x = offsetX + spacing + col * (brickWidth + spacing);
             float y = offsetY + spacing + row * (brickHeight + spacing);
 
-            bricks.emplace_back(x, y, brickWidth, brickHeight, true, &brickTexture);
+            bricks.emplace_back(x, y, brickWidth, brickHeight, true, getRandomTexture());
         }
     }
 
@@ -68,3 +71,9 @@ int BrickManager::getRemainingBricks()
 {
     return brickRemaining;
 };
+
+Texture2D *BrickManager::getRandomTexture()
+{
+    int randomNumber = GetRandomValue(0, 2);
+    return &brickTexture[randomNumber];
+}

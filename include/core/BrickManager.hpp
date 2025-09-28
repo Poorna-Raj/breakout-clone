@@ -13,7 +13,7 @@ private:
     const float brickHeight = 16.0F;
     const float spacing = 5.0F;
     std::vector<Brick> bricks;
-    Texture2D brickTexture;
+    Texture2D brickTexture[3];
 
     int brickRemaining;
 
@@ -28,4 +28,5 @@ public:
     bool allBricksCleared();
 
     int getRemainingBricks();
+    Texture2D *getRandomTexture();
 };

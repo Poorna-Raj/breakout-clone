@@ -5,6 +5,7 @@ class StartScene : public Scene
 {
 private:
     bool startPressed = false;
+    bool shouldExit = false;
 
 public:
     StartScene();

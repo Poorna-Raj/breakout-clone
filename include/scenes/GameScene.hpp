@@ -10,6 +10,7 @@ class GameScene : public Scene
 private:
     bool startPressed = false;
     bool requestClose = false;
+    bool requestNext = false;
 
 public:
     std::unique_ptr<Paddle> paddle;

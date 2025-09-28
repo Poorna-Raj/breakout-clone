@@ -52,7 +52,18 @@ void GameScene::draw()
 
 SceneType GameScene::nextScene()
 {
-    return startPressed ? SceneType::END : SceneType::NONE;
+    if (startPressed)
+    {
+        return SceneType::START;
+    }
+    else if (requestNext)
+    {
+        return SceneType::END;
+    }
+    else
+    {
+        return SceneType::NONE;
+    }
 }
 
 void GameScene::addBall(Paddle &paddle)
@@ -86,7 +97,7 @@ void GameScene::checkBallWallCollision()
 
     if (ball->getY() > GetScreenHeight() - ball->getHeight())
     {
-        startPressed = true;
+        requestNext = true;
     }
 }
 

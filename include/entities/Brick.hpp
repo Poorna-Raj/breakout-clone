@@ -9,10 +9,10 @@ private:
     float width;
     float height;
     bool isAlive;
-    Texture2D texture;
+    Texture2D *texture;
 
 public:
-    Brick(float startX, float startY, float w, float h, bool alive = true);
+    Brick(float startX, float startY, float w, float h, bool alive, Texture2D *text);
     ~Brick();
 
     void draw();

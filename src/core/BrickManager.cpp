@@ -2,6 +2,7 @@
 
 BrickManager::BrickManager()
 {
+    brickTexture = LoadTexture("assets/entities/Brick.png");
     float totalWidth = columns * brickWidth + (columns + 1) * spacing;
     float offsetX = (GetScreenWidth() - totalWidth) / 2.0f;
     float offsetY = 30.0f;
@@ -13,7 +14,7 @@ BrickManager::BrickManager()
             float x = offsetX + spacing + col * (brickWidth + spacing);
             float y = offsetY + spacing + row * (brickHeight + spacing);
 
-            bricks.emplace_back(x, y, brickWidth, brickHeight, true);
+            bricks.emplace_back(x, y, brickWidth, brickHeight, true, &brickTexture);
         }
     }
 

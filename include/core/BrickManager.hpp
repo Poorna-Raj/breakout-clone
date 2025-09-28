@@ -13,6 +13,7 @@ private:
     const float brickHeight = 16.0F;
     const float spacing = 5.0F;
     std::vector<Brick> bricks;
+    Texture2D brickTexture;
 
     int brickRemaining;
 
